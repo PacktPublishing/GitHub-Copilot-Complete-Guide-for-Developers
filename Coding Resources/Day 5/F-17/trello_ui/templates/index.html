@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello-like UI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Trello-like Task Board</h1>
+    <div class="board">
+    <div class="column">
+        <h2>To do</h2>
+        <ul>
+            {% for task in board["To do"] %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% for column, tasks in board.items() %}
+    {% if column != "To do" %}
+    <div class="column">
+        <h2>{{ column }}</h2>
+        <ul>
+            {% for task in tasks %}
+            <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

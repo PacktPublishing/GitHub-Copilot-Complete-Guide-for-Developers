@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Prices</title>
+</head>
+<body>
+    <h1>Gold and Cryptocurrency Prices</h1>
+    <h2>Gold Price</h2>
+    <p id="gold-price">Loading...</p>
+    <h2>Cryptocurrency Prices</h2>
+    <ul id="crypto-list"></ul>
+
+    <script>
+        fetch('/api/prices')
+            .then(response => response.json())
+            .then(data => {
+                // Display gold price
+                const goldPrice = document.getElementById('gold-price');
+                goldPrice.textContent = `Gold: $${data.gold}`;
+
+                // Display cryptocurrency prices
+                const list = document.getElementById('crypto-list');
+                for (const [name, details] of Object.entries(data)) {
+                    if (name !== "gold") {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${name}: $${details.usd}`;
+                        list.appendChild(listItem);
+                    }
+                }
+            });
+    </script>
+</body>
+</html>

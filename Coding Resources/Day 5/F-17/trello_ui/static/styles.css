@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.column {
+    background-color: #ffe4e1;
+    border-radius: 8px;
+    padding: 10px;
+    width: 20%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.column h2 {
+    text-align: center;
+    background-color: #ff7f7f;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.column h2:contains("Doing") {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.column li {
+    background-color: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
